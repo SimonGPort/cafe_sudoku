@@ -11,10 +11,6 @@ module.exports = {
     ],
     'overrides': [
     ],
-    'prefer-const': ['error', {
-        'destructuring': 'any',
-        'ignoreReadBeforeAssign': false
-    }],
     'parser': '@typescript-eslint/parser',
     'parserOptions': {
         'ecmaVersion': 'latest',
@@ -25,6 +21,7 @@ module.exports = {
         '@typescript-eslint'
     ],
     'rules': {
+        '@typescript-eslint/prefer-as-const': 'error',
         'indent': [
             'error',
             4
