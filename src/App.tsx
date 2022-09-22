@@ -1,9 +1,27 @@
 import React from 'react';
-import {connect} from 'react-redux';
+import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+import SudokuMain from './view/SudokuMain';
+// import {connect} from 'react-redux';
 import './App.css';
+import Login from './view/Login';
+import Register from './view/Register';
 
-function App() {
+const router = createBrowserRouter([
+    {
+        path: '/',
+        element: <Login/>,
+    },
+    {
+        path: '/register',
+        element: <Register/>,
+    },
+    {
+        path: '/main',
+        element: <SudokuMain/>,
+    },
+]);
 
+const App: React.FC=()=> {
     //The api is fetch here and then send to the redux store
     // METTRE DANS UN USEEFFECT
     // componentDidMount(){
@@ -14,10 +32,10 @@ function App() {
 
     return (
         <div className="App">
-           test
+            <RouterProvider router={router} />
         </div>
     );
-}
+};
 
 // //Connection to the store
 // const mapDispatchToProps=(dispatch)=>{
