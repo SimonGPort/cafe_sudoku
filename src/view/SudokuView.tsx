@@ -1,6 +1,6 @@
 import React from 'react';
 
-const SudokuMain : React.FC=()=>{
+const SudokuView : React.FC=()=>{
     return(
         <div>
                  sudoku main
@@ -8,4 +8,4 @@ const SudokuMain : React.FC=()=>{
     );
 };
 
-export default SudokuMain;
+export default SudokuView;

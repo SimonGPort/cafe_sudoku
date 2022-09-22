@@ -1,6 +1,6 @@
 import React from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-import SudokuMain from './view/SudokuMain';
+import SudokuView from './view/SudokuView';
 // import {connect} from 'react-redux';
 import './App.css';
 import Login from './view/Login';
@@ -17,7 +17,7 @@ const router = createBrowserRouter([
     },
     {
         path: '/main',
-        element: <SudokuMain/>,
+        element: <SudokuView/>,
     },
 ]);
 
