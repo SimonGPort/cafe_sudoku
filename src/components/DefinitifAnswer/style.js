@@ -1,0 +1,10 @@
+import styled from 'styled-components';
+
+export const AnswerInput=styled.input`
+width:80%;
+height:75%;
+outline:none;
+font-size: 20px;
+border:0;
+text-align: center
+`;

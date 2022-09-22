@@ -1,9 +1,12 @@
 import React from 'react';
+import SudokuHeader from '../components/SudokuHeader/SudokuHeader';
+import SudokuMain from '../components/SudokuMain/SudokuMain';
 
 const SudokuView : React.FC=()=>{
     return(
         <div>
-                 sudoku main
+            <SudokuHeader/>
+            <SudokuMain/>
         </div>
     );
 };
