@@ -6,7 +6,6 @@ outline:none;
 font-size: 10px;
 border:0;
 text-align: center;
-background-color: yellow;
 position:absolue;
 background: rgba(204, 204, 204, 0.5);
 `;

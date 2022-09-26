@@ -1,15 +1,15 @@
-// const initState = {
-//     products: [],
-// };
+const initState = {
+    writting: 'answer',
+};
 
-// const rootReducer = (state = initState, action) => {
-//     // if (action.type === "FETCH_BREW") {
-//     //     return {
-//     //         products: action.products,
-//     //     }
-//     // }
+const rootReducer = (state = initState, action) => {
+    if (action.type === 'CHANGE_WRITTING') {
+        return {
+            writting: action.writting,
+        };
+    }
     
-//     // else{return state}
-// };
+    else{return state;}
+};
 
-// export default rootReducer;
+export default rootReducer;
