@@ -3,6 +3,7 @@ import DefinitifAnswer from '../DefinitifAnswer/DefinitifAnswer';
 import DraftContainer from '../DraftContainer/DraftContainer';
 import {Container} from './style';
 
+
 interface FuncProps{
     borderOutline:[number,number,number,number]
 }

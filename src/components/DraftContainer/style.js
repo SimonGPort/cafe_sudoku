@@ -20,4 +20,5 @@ display: flex;
 flex-direction: column;
 justify-content: space-around;
 height: 80%;
+z-index:${props=>(props.writting==='draft'?'1':'revert')};
 `;
