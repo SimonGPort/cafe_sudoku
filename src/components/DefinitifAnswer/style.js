@@ -6,5 +6,7 @@ height:75%;
 outline:none;
 font-size: 20px;
 border:0;
-text-align: center
+text-align: center;
+position:absolute;
+background: rgb(255 255 255 / 50%);
 `;

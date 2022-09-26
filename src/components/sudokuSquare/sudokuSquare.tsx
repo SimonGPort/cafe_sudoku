@@ -1,5 +1,6 @@
 import React from 'react';
 import DefinitifAnswer from '../DefinitifAnswer/DefinitifAnswer';
+import DraftContainer from '../DraftContainer/DraftContainer';
 import {Container} from './style';
 
 interface FuncProps{
@@ -9,8 +10,8 @@ interface FuncProps{
 const SudokuSquare : React.FC<FuncProps>=({borderOutline})=>{
     return(
         <Container borderOutline={borderOutline}>
-            {/* <DraftContainer/> */}
             <DefinitifAnswer/>
+            <DraftContainer/>
         </Container>
     );
 };
