@@ -7,7 +7,7 @@ font-size: 10px;
 border:0;
 text-align: center;
 position:absolue;
-background: rgba(204, 204, 204, 0.5);
+background: ${props=>(props.writting==='draft'||!props.isArrayEmpty?'rgba(204, 204, 204, 0.5)':'white')};
 `;
 
 export const Row=styled.div`

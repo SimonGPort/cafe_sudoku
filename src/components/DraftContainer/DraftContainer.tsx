@@ -25,22 +25,29 @@ const DefinitifAnswer : React.FC<FuncProps>=({thisRow,thisCol})=>{
         dispatch(changeDraftAnswer(event,row,col,index));
     };
 
+    const isArrayEmpty=():boolean=>{
+        const drafts=square['draft'];
+        let value=true;
+        drafts.forEach((draft)=>{if(draft)value=false;});
+        return value;
+    };
+
     return(
         <Container writting={writting}>
             <Row >
-                <AnswerInput value={square['draft'][0]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,0);}}/>
-                <AnswerInput value={square['draft'][1]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,1);}}/>
-                <AnswerInput value={square['draft'][2]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,2);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][0]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,0);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][1]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,1);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][2]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,2);}}/>
             </Row>
             <Row>
-                <AnswerInput value={square['draft'][3]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,3);}}/>
-                <AnswerInput value={square['draft'][4]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,4);}}/>
-                <AnswerInput value={square['draft'][5]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,5);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][3]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,3);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][4]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,4);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][5]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,5);}}/>
             </Row>
             <Row>
-                <AnswerInput value={square['draft'][6]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,6);}}/>
-                <AnswerInput value={square['draft'][7]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,7);}}/>
-                <AnswerInput value={square['draft'][8]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,8);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][6]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,6);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][7]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,7);}}/>
+                <AnswerInput writting={writting} isArrayEmpty={isArrayEmpty()} value={square['draft'][8]} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{changeDraft(evt.target.value,thisRow,thisCol,8);}}/>
             </Row>
         </Container>
     );
