@@ -10,9 +10,9 @@ export interface state {
     square,square,square,square,square,square,square,square,square,
     square,square,square,square,square,square,square,square,square,
     square,square,square,square,square,square,square,square,square,
-  ]
+  ],
 }
 
 export interface square{
-  row:number,col:number,draft:[string,string,string,string,string,string,string,string,string],answer:string
+  lock:string,zone:number, row:number,col:number,draft:[string,string,string,string,string,string,string,string,string],answer:string
 }

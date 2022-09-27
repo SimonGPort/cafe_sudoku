@@ -14,16 +14,18 @@ interface FuncProps{
 const DefinitifAnswer : React.FC<FuncProps>=({thisRow,thisCol})=>{
     const dispatch = useDispatch();
     const game=useSelector((state:state) => state.game);
+    const lock:string=game?.filter((square)=>{return square.row===thisRow && square.col===thisCol;})[0]['lock'];
     const answer:string=game?.filter((square)=>{return square.row===thisRow && square.col===thisCol;})[0]['answer'];
 
     const modificationAnswer=(event:string,row:number,col:number):void=>{
+        if(lock){return;}
         const validation=inputValidation(event);
         if(!validation){return;}
         dispatch(changeAnswer(event,row,col));
     };
 
     return(
-        <AnswerInput value={answer} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{modificationAnswer(evt.target.value,thisRow,thisCol);}}/>
+        <AnswerInput value={answer} lock={lock} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{modificationAnswer(evt.target.value,thisRow,thisCol);}}/>
     );
 };
 
