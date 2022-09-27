@@ -6,13 +6,15 @@ import {Container} from './style';
 
 interface FuncProps{
     borderOutline:[number,number,number,number]
+    thisRow:number,
+    thisCol:number
 }
 
-const SudokuSquare : React.FC<FuncProps>=({borderOutline})=>{
+const SudokuSquare : React.FC<FuncProps>=({borderOutline,thisRow,thisCol})=>{
     return(
         <Container borderOutline={borderOutline}>
-            <DefinitifAnswer/>
-            <DraftContainer/>
+            <DefinitifAnswer thisRow={thisRow} thisCol={thisCol}/>
+            <DraftContainer thisRow={thisRow} thisCol={thisCol}/>
         </Container>
     );
 };
