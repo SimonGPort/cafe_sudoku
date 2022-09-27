@@ -23,6 +23,21 @@ const rootReducer = (state = initState, action) => {
             game: gameTemp,
         };
     }
+    if (action.type === 'CHANGE_ANSWER') {
+        const sameRow=[...state.game].filter((square)=>{return square.row===action.row;}).map((square)=>{return square.answer;});
+        const sameCol=[...state.game].filter((square)=>{return square.col===action.col;}).map((square)=>{return square.answer;});
+        const numberRepeated=sameRow.includes(action.event) || sameCol.includes(action.event);
+        if(action.event!=='' && numberRepeated){return {...state};}
+        
+        const indexSquare=state.game.findIndex((square)=>{return square.row===action.row && square.col===action.col;});
+        const gameTemp=[...state.game];
+        gameTemp[indexSquare]['answer']=action.event;
+
+        return {
+            ...state,
+            game: gameTemp,
+        };
+    }
     if (action.type === 'CHANGE_WRITTING') {
         return {
             ...state,
