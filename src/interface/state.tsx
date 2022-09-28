@@ -1,4 +1,6 @@
 export interface state {
+  score:Array<Date>,
+  gameOver:boolean;
   writting: string;
   game:[
     square,square,square,square,square,square,square,square,square,

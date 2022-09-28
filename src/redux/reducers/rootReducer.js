@@ -1,6 +1,8 @@
 import problems from '../../problems/problems';
 
 const initState = {
+    score:[],
+    gameOver:false,
     writting: 'answer',
     game: [
         {idx:0,lock:false, zone:0,row:0,col:0,draft:['','','','','','','','',''],answer:''},{idx:1,lock:false, zone:0,row:0,col:1,draft:['','','','','','','','',''],answer:''},{idx:2,lock:false, zone:0,row:0,col:2,draft:['','','','','','','','',''],answer:''},{idx:3,lock:false, zone:1,row:0,col:3,draft:['','','','','','','','',''],answer:''},{idx:4,lock:false, zone:1,row:0,col:4,draft:['','','','','','','','',''],answer:''},{idx:5,lock:false, zone:1,row:0,col:5,draft:['','','','','','','','',''],answer:''},{idx:6,lock:false, zone:2,row:0,col:6,draft:['','','','','','','','',''],answer:''},{idx:7,lock:false, zone:2,row:0,col:7,draft:['','','','','','','','',''],answer:''},{idx:8,lock:false, zone:2,row:0,col:8,draft:['','','','','','','','',''],answer:''},
@@ -60,8 +62,13 @@ const rootReducer = (state = initState, action) => {
             writting: action.writting,
         };
     }
+    if (action.type === 'GAME_OVER') {
+        return {
+            ...state,
+            gameOver: action.status,
+        };
+    }
     if (action.type === 'NEW_GAME') {
-        // ici
         const max=1;
         const randomIndex=Math.floor(Math.random() * (max + 1));
         const newGame=problems[randomIndex]['game'];
