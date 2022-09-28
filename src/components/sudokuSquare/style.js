@@ -15,5 +15,5 @@ border-bottom-width:${props=>(props.borderOutline[2]?'0.1rem':'0rem')};
 border-left-width:${props=>(props.borderOutline[3]?'0.1rem':'0rem')};
 box-sizing: border-box;
 background-color:${props=>(props.lock?'#b3b3b3':'revert')};
-z-index:-1;
+border-bottom: ${props=>(props.thisRow===2||props.thisRow===5||props.thisRow===8?'0.2rem solid black':'none')};
 `;

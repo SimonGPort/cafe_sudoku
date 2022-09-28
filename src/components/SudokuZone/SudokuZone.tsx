@@ -17,14 +17,14 @@ const SudokuZone : React.FC<FuncProps>=({borderOutline,rowRange,colRange})=>{
                 <SudokuSquare borderOutline={[0,0,0,0]} thisRow={rowRange[0]} thisCol={colRange[2]}/>
             </SudokuRow>
             <SudokuRow>
-                <SudokuSquare borderOutline={[1,0,1,0]} thisRow={rowRange[1]} thisCol={colRange[0]}/>
-                <SudokuSquare borderOutline={[1,1,1,1]} thisRow={rowRange[1]} thisCol={colRange[1]}/>
-                <SudokuSquare borderOutline={[1,0,1,0]} thisRow={rowRange[1]} thisCol={colRange[2]}/>
+                <SudokuSquare borderOutline={[1,0,0,0]} thisRow={rowRange[1]} thisCol={colRange[0]}/>
+                <SudokuSquare borderOutline={[1,1,0,1]} thisRow={rowRange[1]} thisCol={colRange[1]}/>
+                <SudokuSquare borderOutline={[1,0,0,0]} thisRow={rowRange[1]} thisCol={colRange[2]}/>
             </SudokuRow>
             <SudokuRow>
-                <SudokuSquare borderOutline={[0,0,0,0]} thisRow={rowRange[2]} thisCol={colRange[0]}/>
-                <SudokuSquare borderOutline={[0,1,0,1]} thisRow={rowRange[2]} thisCol={colRange[1]}/>
-                <SudokuSquare borderOutline={[0,0,0,0]} thisRow={rowRange[2]} thisCol={colRange[2]}/>
+                <SudokuSquare borderOutline={[1,0,0,0]} thisRow={rowRange[2]} thisCol={colRange[0]}/>
+                <SudokuSquare borderOutline={[1,1,0,1]} thisRow={rowRange[2]} thisCol={colRange[1]}/>
+                <SudokuSquare borderOutline={[1,0,0,0]} thisRow={rowRange[2]} thisCol={colRange[2]}/>
             </SudokuRow>
 
 

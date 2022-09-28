@@ -17,7 +17,7 @@ const SudokuSquare : React.FC<FuncProps>=({borderOutline,thisRow,thisCol})=>{
     const lock:string=game?.filter((square)=>{return square.row===thisRow && square.col===thisCol;})[0]['lock'];
     
     return(
-        <Container lock={lock} borderOutline={borderOutline}>
+        <Container thisRow={thisRow} lock={lock} borderOutline={borderOutline}>
             <DefinitifAnswer thisRow={thisRow} thisCol={thisCol}/>
             {!lock && <DraftContainer thisRow={thisRow} thisCol={thisCol}/>}
         </Container>
