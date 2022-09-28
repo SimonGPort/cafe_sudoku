@@ -11,8 +11,19 @@ export interface state {
     square,square,square,square,square,square,square,square,square,
     square,square,square,square,square,square,square,square,square,
   ],
+  solution:[
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+    string,string,string,string,string,string,string,string,string,
+  ]
 }
 
 export interface square{
-  lock:string,zone:number, row:number,col:number,draft:[string,string,string,string,string,string,string,string,string],answer:string
+  idx:number, lock:string,zone:number, row:number,col:number,draft:[string,string,string,string,string,string,string,string,string],answer:string
 }
