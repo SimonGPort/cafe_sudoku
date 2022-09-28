@@ -5,8 +5,10 @@ import SudokuView from './view/SudokuView';
 import './App.css';
 import Login from './view/Login';
 import Register from './view/Register';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import  {newGame} from './redux/actions/newGame';
+import validationGameEnd from './services/validationGameEnd';
+import {state} from './interface/state';
 
 const router = createBrowserRouter([
     {
@@ -35,6 +37,15 @@ const App: React.FC=()=> {
     useEffect(()=>{
         dispatch(newGame());
     },[]);
+
+    const game=useSelector((state:state) => state.game);
+    const solution=useSelector((state:state) => state.solution);
+
+    useEffect(()=>{
+        if(validationGameEnd(game,solution)){
+            console.log('fini');
+        }
+    },[game]);
 
     return (
         <div className="App">
