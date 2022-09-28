@@ -1,10 +1,12 @@
-import React from 'react';
+import React,{useEffect} from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import SudokuView from './view/SudokuView';
 // import {connect} from 'react-redux';
 import './App.css';
 import Login from './view/Login';
 import Register from './view/Register';
+import { useDispatch } from 'react-redux';
+import  {newGame} from './redux/actions/newGame';
 
 const router = createBrowserRouter([
     {
@@ -29,6 +31,10 @@ const App: React.FC=()=> {
     //        this.props.fetchBrewAction(res)
     //     })
     // }
+    const dispatch = useDispatch();
+    useEffect(()=>{
+        dispatch(newGame());
+    },[]);
 
     return (
         <div className="App">

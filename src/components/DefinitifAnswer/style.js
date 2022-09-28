@@ -8,5 +8,5 @@ font-size: 20px;
 border:0;
 text-align: center;
 position:absolute;
-background: ${props=>(props.lock?'grey':'rgb(255 255 255 / 50%)')};
+background: ${props=>(props.lock?'#b3b3b3':'rgb(255 255 255 / 50%)')};
 `;

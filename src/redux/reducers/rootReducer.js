@@ -1,3 +1,5 @@
+import problems from '../../problems/problems';
+
 const initState = {
     writting: 'answer',
     game: [
@@ -56,6 +58,18 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             writting: action.writting,
+        };
+    }
+    if (action.type === 'NEW_GAME') {
+        // ici
+        const max=1;
+        const randomIndex=Math.floor(Math.random() * (max + 1));
+        const newGame=problems[randomIndex]['game'];
+        const newSolution=problems[randomIndex]['solution'];
+        return {
+            ...state,
+            game: newGame,
+            solution:newSolution
         };
     }
     
