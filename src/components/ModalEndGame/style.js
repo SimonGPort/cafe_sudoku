@@ -19,7 +19,6 @@ width:18rem;
 padding:1rem;
 border:black 3px solid;
 justify-content: space-around;
-color:
 `;
 
 export const ScoreContainer=styled.div`

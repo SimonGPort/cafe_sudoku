@@ -8,7 +8,11 @@ const color={
     headerBackground:'f0dcca',
     actifPenButtonBackground:'yellow',
     actifPencilButtonBackground:'yellow',
-    modalEndGameBackground:'#28b6fa'
+    modalEndGameBackground:'#28b6fa',
+    LoginModalBackground:'white',
+    textHover:'blue',
+    signInBackground:'#333333',
+    signInColor:'white'
 };
 
 export default color;
