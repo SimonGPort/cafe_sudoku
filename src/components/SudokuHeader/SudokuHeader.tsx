@@ -1,5 +1,5 @@
 import React from 'react';
-import {Container} from './style';
+import {Container, ButtonPen, ButtonPencil,ScoreContainer} from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeWritting } from '../../redux/actions/changeWritting';
 import {state} from '../../interface/state';
@@ -12,13 +12,15 @@ const SudokuHeader : React.FC=()=>{
 
     return(
         <Container>
-            <div>cafe sudoku</div>
-            <div>{writting}</div>
+            <div>EVERYDAY SUDOKU</div>
+            <ScoreContainer><img src="fire-black.png" /> {score.length}</ScoreContainer>
             <div>
-                <button onClick={()=>{dispatch(changeWritting('draft'));}}>Draft</button>
-            </div>
-            <div><button onClick={()=>{dispatch(changeWritting('answer'));}}>Answer</button></div>
-            <div>Score: {score.length}</div>
+                <ButtonPencil writting={writting} onClick={()=>{dispatch(changeWritting('draft'));}}>
+                    <img src="lead-pencil-black.png" />
+                </ButtonPencil>
+                <ButtonPen writting={writting} onClick={()=>{dispatch(changeWritting('answer'));}}>
+                    <img src="pen-black.png" />
+                </ButtonPen></div>
         </Container>
     );
 };

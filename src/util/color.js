@@ -6,6 +6,8 @@ const color={
     answerBlockText:'black',
     draftText:'black',
     headerBackground:'f0dcca',
+    actifPenButtonBackground:'yellow',
+    actifPencilButtonBackground:'yellow'
 };
 
 export default color;

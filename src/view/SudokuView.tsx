@@ -15,7 +15,8 @@ const SudokuView : React.FC=()=>{
 const containerStyle={
     backgroundColor:color.backgroundSudokuView,
     width:'fit-content',
-    margin:'auto'
+    margin:'auto',
+    borderRadius:'15px 15px 0px 0px'
 };
 
 export default SudokuView;

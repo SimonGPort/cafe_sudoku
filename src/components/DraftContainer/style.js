@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import color from '../../util/color';
 
 export const AnswerInput=styled.input`
 width:10%;
