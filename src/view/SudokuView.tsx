@@ -19,7 +19,7 @@ const SudokuView : React.FC=()=>{
         if(gameOver){
             setIsModalEndGame(true);
             dispatch(newGame());
-            setTimeout(function(){setIsModalEndGame(false);},2000);
+            setTimeout(function(){setIsModalEndGame(false);},3000);
         }
     },[gameOver]);
 
