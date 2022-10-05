@@ -3,6 +3,7 @@ import {Container, ButtonPen, ButtonPencil,ScoreContainer} from './style';
 import { useDispatch, useSelector } from 'react-redux';
 import { changeWritting } from '../../redux/actions/changeWritting';
 import {state} from '../../interface/state';
+import text from '../../util/text';
 
 const SudokuHeader : React.FC=()=>{
 
@@ -12,7 +13,7 @@ const SudokuHeader : React.FC=()=>{
 
     return(
         <Container>
-            <div>EVERYDAY SUDOKU</div>
+            <div>{text.header.en}</div>
             <ScoreContainer><img src="fire-black.png" /> {score.length}</ScoreContainer>
             <div>
                 <ButtonPencil writting={writting} onClick={()=>{dispatch(changeWritting('draft'));}}>
