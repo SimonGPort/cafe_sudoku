@@ -3,7 +3,6 @@ import color from '../../util/color';
 
 export const Container=styled.div`
 display:flex;
-margin-top:2rem;
 width:36rem;
 margin-right:auto;
 margin-left:auto;
