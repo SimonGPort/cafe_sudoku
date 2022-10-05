@@ -7,7 +7,8 @@ const color={
     draftText:'black',
     headerBackground:'f0dcca',
     actifPenButtonBackground:'yellow',
-    actifPencilButtonBackground:'yellow'
+    actifPencilButtonBackground:'yellow',
+    modalEndGameBackground:'#28b6fa'
 };
 
 export default color;

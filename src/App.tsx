@@ -28,13 +28,7 @@ const router = createBrowserRouter([
 ]);
 
 const App: React.FC=()=> {
-    //The api is fetch here and then send to the redux store
-    // METTRE DANS UN USEEFFECT
-    // componentDidMount(){
-    //     fetchBrew().then(res => {
-    //        this.props.fetchBrewAction(res)
-    //     })
-    // }
+
     const dispatch = useDispatch();
     useEffect(()=>{
         dispatch(newGame());

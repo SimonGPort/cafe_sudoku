@@ -1,9 +1,28 @@
-import React from 'react';
+import React, {useEffect,useState} from 'react';
 import SudokuHeader from '../components/SudokuHeader/SudokuHeader';
 import SudokuMain from '../components/SudokuMain/SudokuMain';
 import color from '../util/color';
+import { useDispatch, useSelector } from 'react-redux';
+import {state} from '../interface/state';
+import {newGame} from '../redux/actions/newGame';
+import ModalEndGame from '../components/ModalEndGame/ModalEndGame';
+
 
 const SudokuView : React.FC=()=>{
+
+    const [isModalEndGame,setIsModalEndGame]=useState<boolean>(false);
+
+    const gameOver=useSelector((state:state) => state.gameOver);
+    const dispatch = useDispatch();
+
+    useEffect(()=>{
+        if(gameOver){
+            setIsModalEndGame(true);
+            dispatch(newGame());
+            setTimeout(function(){setIsModalEndGame(false);},2000);
+        }
+    },[gameOver]);
+
     return(<>
         <div style={logOutStyle}>
             <button style={logoutButtonStyle}>
@@ -14,6 +33,7 @@ const SudokuView : React.FC=()=>{
             <SudokuHeader/>
             <SudokuMain/>
         </div>
+        {isModalEndGame && <ModalEndGame/>}
     </>
     );
 };
