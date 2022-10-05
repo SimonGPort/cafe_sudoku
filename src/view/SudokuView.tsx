@@ -6,10 +6,12 @@ import { useDispatch, useSelector } from 'react-redux';
 import {state} from '../interface/state';
 import {newGame} from '../redux/actions/newGame';
 import ModalEndGame from '../components/ModalEndGame/ModalEndGame';
+import {useNavigate} from 'react-router-dom';
 
 
 const SudokuView : React.FC=()=>{
 
+    const navigate = useNavigate();
     const [isModalEndGame,setIsModalEndGame]=useState<boolean>(false);
 
     const gameOver=useSelector((state:state) => state.gameOver);
@@ -25,7 +27,7 @@ const SudokuView : React.FC=()=>{
 
     return(<>
         <div style={logOutStyle}>
-            <button style={logoutButtonStyle}>
+            <button style={logoutButtonStyle} onClick={()=>{navigate('/');}}>
                 <img src="logout.png"/>
             </button>
         </div>
