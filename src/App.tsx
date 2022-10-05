@@ -8,6 +8,7 @@ import Register from './view/Register';
 import { useDispatch, useSelector } from 'react-redux';
 import  {newGame} from './redux/actions/newGame';
 import  {gameOver} from './redux/actions/gameOver';
+import  {increaseScore} from './redux/actions/increaseScore';
 import validationGameEnd from './services/validationGameEnd';
 import {state} from './interface/state';
 
@@ -44,8 +45,8 @@ const App: React.FC=()=> {
 
     useEffect(()=>{
         if(validationGameEnd(game,solution)){
-            console.log('fini');
             dispatch(gameOver(true));
+            dispatch(increaseScore(new Date));
         }
     },[game]);
 

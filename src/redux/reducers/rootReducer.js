@@ -62,6 +62,14 @@ const rootReducer = (state = initState, action) => {
             writting: action.writting,
         };
     }
+    if (action.type === 'INCREASE_SCORE') {
+        let scoreTemp=[...state.score];
+        scoreTemp.push(action.newDate);
+        return {
+            ...state,
+            score: scoreTemp,
+        };
+    }
     if (action.type === 'GAME_OVER') {
         return {
             ...state,
