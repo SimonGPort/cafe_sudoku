@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import color from '../../util/color';
 
 export const AnswerInput=styled.input`
 width:10%;
@@ -7,7 +8,7 @@ font-size: 10px;
 border:0;
 text-align: center;
 position:absolue;
-background: ${props=>(props.writting==='draft'||!props.isArrayEmpty?'rgba(204, 204, 204, 0.5)':'white')};
+background: ${props=>(props.writting==='draft'||!props.isArrayEmpty?'rgba(204, 204, 204, 0.5)':'color.backgroundSudokuView')};
 `;
 
 export const Row=styled.div`
