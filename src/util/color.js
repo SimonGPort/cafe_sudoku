@@ -12,7 +12,8 @@ const color={
     LoginModalBackground:'white',
     textHover:'blue',
     signInBackground:'#333333',
-    signInColor:'white'
+    signInColor:'white',
+    errorMessage:'red'
 };
 
 export default color;

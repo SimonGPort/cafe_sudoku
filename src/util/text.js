@@ -1,5 +1,3 @@
-import Register from '../view/Register';
-
 const text={
     header:{en:'EVERYDAY SUDOKU',fr:'SUDOKU MANIA'},
     gameOver:{en:'GAME OVER',fr:'FIN'},
@@ -10,7 +8,8 @@ const text={
     loginAsAGuest:{en:'Login as a guest',fr:'Se connecter comme visiteur'},
     cancel:{en:'Cancel',fr:'Annuler'},
     register:{en:'Register',fr:"S'enregistrer"},
-    create:{en:'Create',fr:'Créer'}
+    create:{en:'Create',fr:'Créer'},
+    wrongUser:{en:'Wrong user or password', fr:'Mauvais utilisateur ou mot de passe'}
 };
 
 export default text;

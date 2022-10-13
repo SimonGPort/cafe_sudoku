@@ -1,4 +1,5 @@
 export interface state {
+  name:string,
   score:Array<Date>,
   gameOver:boolean;
   writting: string;

@@ -15,6 +15,7 @@ const SudokuView : React.FC=()=>{
     const [isModalEndGame,setIsModalEndGame]=useState<boolean>(false);
 
     const gameOver=useSelector((state:state) => state.gameOver);
+    const name=useSelector((state:state) => state.name);
     const dispatch = useDispatch();
 
     useEffect(()=>{
@@ -27,7 +28,7 @@ const SudokuView : React.FC=()=>{
 
     return(<>
         <div style={logOutStyle}>
-            <button style={logoutButtonStyle} onClick={()=>{navigate('/');}}>
+            <h4>{name}</h4><button style={logoutButtonStyle} onClick={()=>{navigate('/');}}>
                 <img src="logout.png"/>
             </button>
         </div>
@@ -48,9 +49,10 @@ const containerStyle={
 };
 
 const logOutStyle={
-    textAlign: 'right' as const,
+    display:'flex',
+    justifyContent:'end',
     marginRight: '1em',
-    marginTop: '1em',
+    marginTop: '0.1em',
 
 };
 const logoutButtonStyle={

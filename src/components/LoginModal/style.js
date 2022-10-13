@@ -13,6 +13,7 @@ border-radius:15px 15px 15px 15px;
 width:25rem;
 padding:1rem;
 border:black 3px solid;
+margin-top: 1em;
 `;
 
 export const Section=styled.div`
@@ -47,4 +48,8 @@ color:${color.signInColor};
 font-size:large;
 padding:0.5rem;
 cursor:pointer;
+`;
+
+export const ErrorMessage=styled.h4`
+color:${color.errorMessage}
 `;

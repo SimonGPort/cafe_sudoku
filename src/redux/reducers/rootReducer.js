@@ -1,6 +1,7 @@
 import problems from '../../problems/problems';
 
 const initState = {
+    name:'',
     score:[],
     gameOver:false,
     writting: 'answer',
@@ -54,6 +55,13 @@ const rootReducer = (state = initState, action) => {
         return {
             ...state,
             game: gameTemp,
+        };
+    }
+    if(action.type==='LOGIN'){
+        return {
+            ...state,
+            name: action.name,
+            score:action.score
         };
     }
     if (action.type === 'CHANGE_WRITTING') {
