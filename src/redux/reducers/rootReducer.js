@@ -1,6 +1,7 @@
 import problems from '../../problems/problems';
 
 const initState = {
+    numberError:{row:null,col:null},
     name:'',
     score:[],
     gameOver:false,
@@ -39,6 +40,9 @@ const rootReducer = (state = initState, action) => {
             game: gameTemp,
         };
     }
+    if(action.type==='CLEARNUMBERERROR'){
+        return {...state,numberError:{row:null,col:null}};
+    }
     if (action.type === 'CHANGE_ANSWER') {
         const indexSquare=state.game.findIndex((square)=>{return square.row===action.row && square.col===action.col;});
         
@@ -46,7 +50,7 @@ const rootReducer = (state = initState, action) => {
         const sameCol=[...state.game].filter((square)=>{return square.col===action.col;}).map((square)=>{return square.answer;});
         const sameZone=[...state.game].filter((square)=>{return square.zone===state.game[indexSquare]['zone'];}).map((square)=>{return square.answer;});
         const numberRepeated=sameRow.includes(action.event) || sameCol.includes(action.event) || sameZone.includes(action.event);
-        if(action.event!=='' && numberRepeated){return {...state};}
+        if(action.event!=='' && numberRepeated){return {...state, numberError:{row:action.row,col:action.col}};}
         
         const gameTemp=[...state.game];
         gameTemp[indexSquare]['answer']=action.event;

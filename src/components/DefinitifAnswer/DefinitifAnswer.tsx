@@ -14,6 +14,7 @@ interface FuncProps{
 const DefinitifAnswer : React.FC<FuncProps>=({thisRow,thisCol})=>{
     const dispatch = useDispatch();
     const game=useSelector((state:state) => state.game);
+    const numberError=useSelector((state:state) => state.numberError);
     const lock:string=game?.filter((square)=>{return square.row===thisRow && square.col===thisCol;})[0]['lock'];
     const answer:string=game?.filter((square)=>{return square.row===thisRow && square.col===thisCol;})[0]['answer'];
 
@@ -25,7 +26,7 @@ const DefinitifAnswer : React.FC<FuncProps>=({thisRow,thisCol})=>{
     };
 
     return(
-        <AnswerInput value={answer} lock={lock} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{modificationAnswer(evt.target.value,thisRow,thisCol);}}/>
+        <AnswerInput numberError={numberError} thisRow={thisRow} thisCol={thisCol} value={answer} lock={lock} onChange={(evt:ChangeEvent<HTMLInputElement>)=>{modificationAnswer(evt.target.value,thisRow,thisCol);}}/>
     );
 };
 

@@ -15,6 +15,7 @@ import getDate from './util/getDate';
 import {getTicket} from './util/localStorage';
 import { useMutation } from '@apollo/client';
 import { NEWSCORE } from './graphQL/Mutations';
+import {clearNumberError} from './redux/actions/clearNumberError';
 
 const router = createBrowserRouter([
     {
@@ -39,6 +40,7 @@ const App: React.FC=()=> {
     },[]);
 
     const game=useSelector((state:state) => state.game);
+    const numberError=useSelector((state:state) => state.numberError);
     const solution=useSelector((state:state) => state.solution);
     const [newScore,{error}]=useMutation(NEWSCORE);
 
@@ -60,6 +62,13 @@ const App: React.FC=()=> {
             }
         }
     },[game]);
+
+    useEffect(()=>{
+        setTimeout(function(){ 
+            dispatch(clearNumberError());
+        }, 1000)
+        ;
+    },[numberError]);
 
     return (
         <div className="App">

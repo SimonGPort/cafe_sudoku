@@ -13,7 +13,8 @@ const color={
     textHover:'blue',
     signInBackground:'#333333',
     signInColor:'white',
-    errorMessage:'red'
+    errorMessage:'red',
+    squareError:'red'
 };
 
 export default color;

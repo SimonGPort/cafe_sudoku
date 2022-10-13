@@ -1,4 +1,5 @@
 export interface state {
+  numberError:errorObj,
   name:string,
   score:Array<Date>,
   gameOver:boolean;
@@ -29,4 +30,9 @@ export interface state {
 
 export interface square{
   idx:number, lock:string,zone:number, row:number,col:number,draft:[string,string,string,string,string,string,string,string,string],answer:string
+}
+
+interface errorObj{
+  row:number | null,
+  col:number | null
 }
