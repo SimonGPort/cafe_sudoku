@@ -40,7 +40,7 @@ const LoginModal : React.FC=()=>{
                 <div><Input onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setPassword(e.target.value);}}/></div>
             </Section>
             {errorMessage!=='' &&
-<ErrorMessage>{errorMessage}</ErrorMessage>
+                <ErrorMessage>{errorMessage}</ErrorMessage>
             }
             <Section>
                 <Button onClick={()=>{signup();}}>{text.signIn.en}</Button>
