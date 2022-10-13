@@ -9,6 +9,10 @@ import ModalEndGame from '../components/ModalEndGame/ModalEndGame';
 import {useNavigate} from 'react-router-dom';
 import {logoutTicket} from '../util/localStorage';
 import {logout} from '../redux/actions/logout';
+import {AUTOLOGIN} from '../graphQL/Queries';
+import { useQuery } from '@apollo/client';
+import {login} from '../redux/actions/login';
+import {getTicket} from '../util/localStorage';
 
 
 const SudokuView : React.FC=()=>{
@@ -20,6 +24,18 @@ const SudokuView : React.FC=()=>{
     const name=useSelector((state:state) => state.name);
     const dispatch = useDispatch();
 
+    const [id,setId]=useState('');
+    // eslint-disable-next-line
+    const {error,loading,data}=useQuery(AUTOLOGIN,{variables:{id}});
+
+    useEffect(()=>{autoLogin();},[]);
+
+    useEffect(()=>{
+        if(data && data.autoLogin.success.result){
+            dispatch(login(data.autoLogin.user.name,data.autoLogin.user.score));
+        }
+    },[data]);
+
     useEffect(()=>{
         if(gameOver){
             setIsModalEndGame(true);
@@ -27,6 +43,13 @@ const SudokuView : React.FC=()=>{
             setTimeout(function(){setIsModalEndGame(false);},3000);
         }
     },[gameOver]);
+
+    const autoLogin=()=>{
+        const ticket=getTicket();
+        if(ticket){
+            setId(ticket);
+        }
+    };
 
     const toogleLogout=()=>{
         logoutTicket();

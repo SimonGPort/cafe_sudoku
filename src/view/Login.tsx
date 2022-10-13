@@ -25,7 +25,6 @@ const Login : React.FC=()=>{
 
     const autoLogin=()=>{
         const ticket=getTicket();
-        console.log('ticket:',ticket);
         if(ticket){
             setId(ticket);
         }
