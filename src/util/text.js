@@ -9,7 +9,7 @@ const text={
     cancel:{en:'Cancel',fr:'Annuler'},
     register:{en:'Register',fr:"S'enregistrer"},
     create:{en:'Create',fr:'Créer'},
-    wrongUser:{en:'Wrong user or password', fr:'Mauvais utilisateur ou mot de passe'}
+    wrongUser:{en:'Wrong name or password', fr:'Mauvais nom ou mot de passe'}
 };
 
 export default text;
