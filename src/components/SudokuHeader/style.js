@@ -14,6 +14,10 @@ font-size:xx-large;
 border-radius: 15px 15px 0px 0px;
 `;
 
+export const ScoreText=styled.div`
+font-size:large;
+`;
+
 export const ScoreContainer=styled.div`
 display:flex;
 align-items:center;
