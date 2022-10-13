@@ -1,4 +1,5 @@
-import problems from '../../problems/problems';
+
+import {changeDraft,clearNumberError,changeAnswer,logout,login,newGame,changeWritting,increaseScore,gameOver} from '../reducerServices/reducerServices';
 
 const initState = {
     numberError:{row:null,col:null},
@@ -32,79 +33,31 @@ const initState = {
 
 const rootReducer = (state = initState, action) => {
     if (action.type === 'CHANGE_DRAFT') {
-        const indexSquare=state.game.findIndex((square)=>{return square.row===action.row && square.col===action.col;});
-        const gameTemp=[...state.game];
-        gameTemp[indexSquare]['draft'][action.index]=action.event;
-        return {
-            ...state,
-            game: gameTemp,
-        };
+        return changeDraft(state,action);
     }
-    if(action.type==='CLEARNUMBERERROR'){
-        return {...state,numberError:{row:null,col:null}};
+    if(action.type==='CLEAR_NUMBER_ERROR'){
+        return clearNumberError(state,action);
     }
     if (action.type === 'CHANGE_ANSWER') {
-        const indexSquare=state.game.findIndex((square)=>{return square.row===action.row && square.col===action.col;});
-        
-        const sameRow=[...state.game].filter((square)=>{return square.row===action.row;}).map((square)=>{return square.answer;});
-        const sameCol=[...state.game].filter((square)=>{return square.col===action.col;}).map((square)=>{return square.answer;});
-        const sameZone=[...state.game].filter((square)=>{return square.zone===state.game[indexSquare]['zone'];}).map((square)=>{return square.answer;});
-        const numberRepeated=sameRow.includes(action.event) || sameCol.includes(action.event) || sameZone.includes(action.event);
-        if(action.event!=='' && numberRepeated){return {...state, numberError:{row:action.row,col:action.col}};}
-        
-        const gameTemp=[...state.game];
-        gameTemp[indexSquare]['answer']=action.event;
-        gameTemp[indexSquare]['draft']=['','','','','','','','',''];
-
-        return {
-            ...state,
-            game: gameTemp,
-        };
+        return changeAnswer(state,action);
     }
     if(action.type==='LOGIN'){
-        return {
-            ...state,
-            name: action.name,
-            score:action.score
-        };
+        return login(state,action);
     }
     if(action.type==='LOGOUT'){
-        return{
-            ...state,
-            name:'',
-            score:[]
-        };
+        return logout(state,action);
     }
     if (action.type === 'CHANGE_WRITTING') {
-        return {
-            ...state,
-            writting: action.writting,
-        };
+        return changeWritting(state,action);
     }
     if (action.type === 'INCREASE_SCORE') {
-        let scoreTemp=[...state.score];
-        scoreTemp.push(action.newDate);
-        return {
-            ...state,
-            score: scoreTemp,
-        };
+        return increaseScore(state,action);
     }
     if (action.type === 'GAME_OVER') {
-        return {
-            ...state,
-            gameOver: action.status,
-        };
+        return gameOver(state,action);
     }
     if (action.type === 'NEW_GAME') {
-        const max=1;
-        const randomIndex=Math.floor(Math.random() * (max + 1));
-        const newGame=problems[randomIndex]['game'];
-        const newSolution=problems[randomIndex]['solution'];
-        return {
-            ...state,
-            game: newGame,
-            solution:newSolution
-        };
+        return newGame(state,action);
     }
     
     else{return state;}

@@ -1,5 +1,5 @@
 export const clearNumberError=()=>{
     return{
-        type:'CLEARNUMBERERROR',
+        type:'CLEAR_NUMBER_ERROR',
     };
 };
