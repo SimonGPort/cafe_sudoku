@@ -11,8 +11,7 @@ import { loginTicket } from '../../util/localStorage';
 const RegisterModal : React.FC=()=>{
     const dispatch = useDispatch();
     const navigate = useNavigate();
-    // eslint-disable-next-line
-    const [createUser,{data,loading,error}]=useMutation(CREATEUSER);
+    const [createUser,{data,error}]=useMutation(CREATEUSER);
 
     const [name,setName]=useState('');
     const [password,setPassword]=useState('');

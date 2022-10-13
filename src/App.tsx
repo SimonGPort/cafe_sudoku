@@ -11,6 +11,10 @@ import  {gameOver} from './redux/actions/gameOver';
 import  {increaseScore} from './redux/actions/increaseScore';
 import validationGameEnd from './services/validationGameEnd';
 import {state} from './interface/state';
+import getDate from './util/getDate';
+import {getTicket} from './util/localStorage';
+import { useMutation } from '@apollo/client';
+import { NEWSCORE } from './graphQL/Mutations';
 
 const router = createBrowserRouter([
     {
@@ -36,11 +40,24 @@ const App: React.FC=()=> {
 
     const game=useSelector((state:state) => state.game);
     const solution=useSelector((state:state) => state.solution);
+    const [newScore,{error}]=useMutation(NEWSCORE);
 
     useEffect(()=>{
         if(validationGameEnd(game,solution)){
             dispatch(gameOver(true));
-            dispatch(increaseScore(new Date));
+            const date=getDate();
+            dispatch(increaseScore(date));
+            const ticket=getTicket();
+            if(ticket){
+                newScore({
+                    variables:{
+                        id:ticket,date
+                    }
+                });
+                if(error){
+                    console.log('error newScore:',error);
+                }
+            }
         }
     },[game]);
 
@@ -51,12 +68,4 @@ const App: React.FC=()=> {
     );
 };
 
-// //Connection to the store
-// const mapDispatchToProps=(dispatch)=>{
-//     return{
-//         fetchBrewAction:(products)=>{dispatch(fetchBrewAction(products))}
-//     }
-// }
-
-// export default connect(undefined,mapDispatchToProps)(App)
 export default App;

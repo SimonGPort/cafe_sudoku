@@ -18,3 +18,17 @@ mutation createUser($name: String!, $password: String!){
 }
 }
 `;
+
+export const NEWSCORE=gql`
+mutation newScore($id: String!, $date: String!){
+    newScore(
+    id:$id
+    date:$date
+){
+    success{
+        result,
+        status
+    }
+}
+}
+`;
