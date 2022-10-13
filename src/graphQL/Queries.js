@@ -18,3 +18,21 @@ login(
 }
 }
 `;
+
+export const AUTOLOGIN=gql`
+query autoLogin($id:String! ){
+    autoLogin(
+    id:$id
+){
+    success{
+        result,
+        status
+    },
+    user{
+        name,
+        score,
+        id
+    }
+}
+}
+`;

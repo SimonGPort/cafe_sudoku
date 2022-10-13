@@ -25,7 +25,6 @@ const LoginModal : React.FC=()=>{
         }else{
             setErrorMessage(text.wrongUser.en);
         }
-        console.log('signup, data:',data);
     };
 
     return(
