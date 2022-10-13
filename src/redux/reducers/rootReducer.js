@@ -64,6 +64,13 @@ const rootReducer = (state = initState, action) => {
             score:action.score
         };
     }
+    if(action.type==='LOGOUT'){
+        return{
+            ...state,
+            name:'',
+            score:[]
+        };
+    }
     if (action.type === 'CHANGE_WRITTING') {
         return {
             ...state,

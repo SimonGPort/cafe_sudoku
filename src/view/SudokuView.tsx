@@ -8,6 +8,7 @@ import {newGame} from '../redux/actions/newGame';
 import ModalEndGame from '../components/ModalEndGame/ModalEndGame';
 import {useNavigate} from 'react-router-dom';
 import {logoutTicket} from '../util/localStorage';
+import {logout} from '../redux/actions/logout';
 
 
 const SudokuView : React.FC=()=>{
@@ -27,14 +28,15 @@ const SudokuView : React.FC=()=>{
         }
     },[gameOver]);
 
-    const logout=()=>{
+    const toogleLogout=()=>{
         logoutTicket();
+        dispatch(logout());
         navigate('/');
     };
 
     return(<>
         <div style={logOutStyle}>
-            <h4>{name}</h4><button style={logoutButtonStyle} onClick={()=>{logout();}}>
+            <h4>{name}</h4><button style={logoutButtonStyle} onClick={()=>{toogleLogout();}}>
                 <img src="logout.png"/>
             </button>
         </div>
