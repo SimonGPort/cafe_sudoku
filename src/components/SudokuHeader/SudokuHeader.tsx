@@ -16,7 +16,7 @@ const SudokuHeader : React.FC=()=>{
             <div>{text.header.en}</div>
             <div>
                 <ScoreContainer><img src="fire-black.png" /> {score.length}</ScoreContainer>
-                <ScoreText>SCORE</ScoreText>
+                <ScoreText>{text.scoreText.en}</ScoreText>
             </div>
             <div>
                 <ButtonPencil writting={writting} onClick={()=>{dispatch(changeWritting('draft'));}}>
