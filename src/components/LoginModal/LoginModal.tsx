@@ -6,6 +6,7 @@ import { useQuery } from '@apollo/client';
 import {LOGIN} from '../../graphQL/Queries';
 import { useDispatch } from 'react-redux';
 import {login} from '../../redux/actions/login';
+import { loginTicket } from '../../util/localStorage';
 
 const LoginModal : React.FC=()=>{
     const dispatch = useDispatch();
@@ -19,6 +20,7 @@ const LoginModal : React.FC=()=>{
     const signup=()=>{
         if(data.login.success.result===true){
             dispatch(login(data.login.user.name,data.login.user.score));
+            loginTicket(data.login.user.id);
             navigate('/main');
         }else{
             setErrorMessage(text.wrongUser.en);
