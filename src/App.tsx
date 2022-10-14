@@ -64,10 +64,11 @@ const App: React.FC=()=> {
     },[game]);
 
     useEffect(()=>{
-        setTimeout(function(){ 
-            dispatch(clearNumberError());
-        }, 1000)
-        ;
+        if(numberError.length>0){
+            setTimeout(function(){ 
+                dispatch(clearNumberError());
+            }, 500);}
+        
     },[numberError]);
 
     return (
