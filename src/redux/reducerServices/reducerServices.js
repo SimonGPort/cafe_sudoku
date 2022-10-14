@@ -11,7 +11,7 @@ export const changeDraft=(state,action)=>{
 };
 
 export const clearNumberError=(state)=>{
-    return {...state,numberError:{row:null,col:null}};
+    return {...state,numberError:[]};
 };
 
 export const changeAnswer=(state,action)=>{
@@ -21,7 +21,7 @@ export const changeAnswer=(state,action)=>{
     const sameCol=[...state.game].filter((square)=>{return square.col===action.col;}).map((square)=>{return square.answer;});
     const sameZone=[...state.game].filter((square)=>{return square.zone===state.game[indexSquare]['zone'];}).map((square)=>{return square.answer;});
     const numberRepeated=sameRow.includes(action.event) || sameCol.includes(action.event) || sameZone.includes(action.event);
-    if(action.event!=='' && numberRepeated){return {...state, numberError:{row:action.row,col:action.col}};}
+    if(action.event!=='' && numberRepeated){return {...state, numberError:[{row:action.row,col:action.col}]};}
     
     const gameTemp=[...state.game];
     gameTemp[indexSquare]['answer']=action.event;
@@ -111,4 +111,19 @@ export const reset=(state)=>{
         ...state,
         game: gameTemp,
     };
+};
+
+export const solution=(state)=>{
+    let numberError=[];
+    state.game.forEach((square)=>{
+        if(square.answer==='')return;
+        if(square.answer!==state.solution[square.idx]){
+            numberError.push({col:square.col,row:square.row});
+        }
+    });
+    return{
+        ...state,
+        numberError
+    };
+
 };

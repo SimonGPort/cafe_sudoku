@@ -5,6 +5,7 @@ import {useNavigate} from 'react-router-dom';
 import {logoutTicket} from '../../util/localStorage';
 import {logout} from '../../redux/actions/logout';
 import {reset} from '../../redux/actions/reset';
+import {solution} from '../../redux/actions/solution';
 import {Container,ButtonContainer,Button} from './style';
 
 
@@ -25,10 +26,14 @@ const SudokuView : React.FC=()=>{
         dispatch(reset());
     };
 
+    const toogleSolution=()=>{
+        dispatch(solution());
+    };
+
     return(<>
         <Container>
             <div>
-                <Button  onClick={()=>{console.log('solution');}}>
+                <Button  onClick={()=>{toogleSolution();}}>
                     <img src="auto-fix-black.png"/>
                 </Button>
                 <Button  onClick={()=>{toogleReset();}}>
