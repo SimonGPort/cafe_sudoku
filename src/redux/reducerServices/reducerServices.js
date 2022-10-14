@@ -73,7 +73,7 @@ export const gameOver=(state,action)=>{
 };
 
 export const newGame=(state)=>{
-    const max=1;
+    const max=3;
     const randomIndex=Math.floor(Math.random() * (max + 1));
     const newGame=problems[randomIndex]['game'];
     const newSolution=problems[randomIndex]['solution'];
