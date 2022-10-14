@@ -1,5 +1,5 @@
 
-import {changeDraft,clearNumberError,changeAnswer,logout,login,newGame,changeWritting,increaseScore,gameOver} from '../reducerServices/reducerServices';
+import {reset,changeDraft,clearNumberError,changeAnswer,logout,login,newGame,changeWritting,increaseScore,gameOver} from '../reducerServices/reducerServices';
 
 const initState = {
     numberError:{row:null,col:null},
@@ -58,6 +58,9 @@ const rootReducer = (state = initState, action) => {
     }
     if (action.type === 'NEW_GAME') {
         return newGame(state,action);
+    }
+    if (action.type === 'RESET') {
+        return reset(state,action);
     }
     
     else{return state;}

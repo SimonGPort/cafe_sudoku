@@ -83,3 +83,32 @@ export const newGame=(state)=>{
         solution:newSolution
     };
 };
+
+export const reset=(state)=>{
+    let gameTemp=[...state.game];
+    gameTemp=gameTemp.map((square)=>{if(!square.lock){
+        return {
+            idx:square.idx,
+            lock:square.lock,
+            row:square.row,
+            col:square.col,
+            zone:square.zone,
+            draft:['','','','','','','','',''],
+            answer:''};}
+    else{
+        return {
+            idx:square.idx,
+            lock:square.lock,
+            row:square.row,
+            col:square.col,
+            zone:square.zone,
+            draft:square.draft,
+            answer:square.answer};
+    }
+    });
+
+    return {
+        ...state,
+        game: gameTemp,
+    };
+};
