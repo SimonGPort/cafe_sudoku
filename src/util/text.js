@@ -10,7 +10,8 @@ const text={
     register:{en:'Register',fr:"S'enregistrer"},
     create:{en:'Create',fr:'Créer'},
     wrongUser:{en:'Wrong name or password', fr:'Mauvais nom ou mot de passe'},
-    scoreText:{en:'SCORE',fr:'SCORE'}
+    scoreText:{en:'SCORE',fr:'SCORE'},
+    nameAlreadyUsed:{en:'Name already used',fr:'Nom déjà utilisé'}
 };
 
 export default text;

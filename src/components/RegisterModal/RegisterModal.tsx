@@ -1,5 +1,5 @@
 import React,{useEffect, useState} from 'react';
-import {Container,Section,SectionTitle,SectionButton,Input,Button} from './style';
+import {Container,Section,SectionTitle,SectionButton,Input,Button,ErrorMessage} from './style';
 import text from '../../util/text';
 import {useNavigate} from 'react-router-dom';
 import { useMutation } from '@apollo/client';
@@ -15,6 +15,7 @@ const RegisterModal : React.FC=()=>{
 
     const [name,setName]=useState('');
     const [password,setPassword]=useState('');
+    const [errorMessage,setErrorMessage]=useState('');
 
     const toogleCreateUser=()=>{
         createUser({
@@ -33,6 +34,10 @@ const RegisterModal : React.FC=()=>{
             loginTicket(data.createUser.user.id);
             navigate('/main');
         }
+        if(data && !data.createUser.success.result && data.createUser.success.status===409){
+            setErrorMessage(text.nameAlreadyUsed.en);
+
+        }
     },[data]);
 
     return(
@@ -47,7 +52,9 @@ const RegisterModal : React.FC=()=>{
                 <div>{text.password.en}</div>
                 <div><Input onChange={(e:React.ChangeEvent<HTMLInputElement>)=>{setPassword(e.target.value);}}/></div>
             </Section>
-
+            {errorMessage!=='' &&
+                <ErrorMessage>{errorMessage}</ErrorMessage>
+            }
             <Section>
                 <Button onClick={()=>{toogleCreateUser();}}>{text.create.en}</Button>
             </Section>

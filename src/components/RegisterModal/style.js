@@ -48,3 +48,7 @@ font-size:large;
 padding:0.5rem;
 cursor:pointer;
 `;
+
+export const ErrorMessage=styled.h4`
+color:${color.errorMessage}
+`;
